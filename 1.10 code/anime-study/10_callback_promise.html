@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="animation.css">
+</head>
+<body>
+    <div></div>
+    <input type="text" class='callback' >
+    <input type="text" class='callback' >
+    <input type="text" class='callback'>
+    <script src="../node_modules/animejs/lib/anime.min.js"></script>
+    <script>
+        var update = 0;
+        var ipt1 = document.querySelectorAll('input')[0];
+        var ipt2 = document.querySelectorAll('input')[1];
+        var ipt3 = document.querySelectorAll('input')[2];
+
+        var loopbegin = 0;
+        var loopcomplete = 0;
+        
+        var change = 0;
+
+        var changeBegin = 0;
+        var changeComplete = 0;
+        var animation =  anime({
+            targets: 'div',
+            translateX: 250,
+            //loop: true,
+            delay: 2000,
+            // update: function(anime){
+            //     update++;
+            //     ipt1.value = 'update' + update;
+            //     ipt2.value = 'progress' + anime.progress + '%';
+
+            // },
+            // begin: function(anime){
+            //     ipt1.value = 'anime.began:' + anime.began
+            // },
+            // complete: function(anime){
+            //     ipt2.value = 'anime.completed:' + anime.completed
+            // }
+            // loopBegin: function(){
+            //     loopbegin++
+            //     ipt1.value = 'loopbegin:' + loopbegin;
+            // },
+            // loopComplete: function(){
+            //     loopcomplete++
+            //     ipt2.value = 'loopcomplete:' + loopcomplete;
+            // }
+            // change: function(){
+            //     change++;
+            //     ipt3.value = 'change' + change;
+            // }
+            changeBegin: function(){
+                changeBegin++;
+                ipt1.value = 'changeBegin:' + changeBegin
+            },
+            changeComplete: function(){
+                changeComplete++;
+                ipt2.value = 'changeComplete:' + changeComplete
+            },
+        })
+        animation.finished.then(
+            function(){
+                ipt3.value = '动画完成'
+            }
+        )
+    </script>
+</body>
+</html>

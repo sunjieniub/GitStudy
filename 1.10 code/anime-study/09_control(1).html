@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="animation.css">
+</head>
+<body>
+    <div></div>
+    <div></div>
+    <div></div>
+    <button>play</button>
+    <button>pause</button>
+    <button>restart</button>
+    <button>reverse</button>
+    <input type="range" name="" id="">
+    <script src="../node_modules/animejs/lib/anime.min.js"></script>
+    <script>
+        var animation = anime({
+            targets: 'div',
+            translateX: 250,
+            duration: 2000,
+            easing: 'linear',
+            autoplay: false
+        })
+        var playBtn = document.querySelector('button');
+        var pauseBtn = document.querySelectorAll('button')[1];
+        var restartBtn = document.querySelectorAll('button')[2];
+        var reverseBtn = document.querySelectorAll('button')[3];
+        var reverseBtn = document.querySelectorAll('input')[0];
+        
+        playBtn.onclick = animation.play;
+        pauseBtn.onclick = animation.pause;
+        restartBtn.onclick = animation.restart;
+        reverseBtn.onclick = animation.reverse;
+        reverseBtn.oninput = function(){
+            animation.seek(this.value/100*animation.duration)
+        }
+    </script>
+</body>
+</html>

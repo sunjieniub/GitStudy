@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: #000;
+            background-image: url(img/map.png);
+            background-repeat: no-repeat;
+            background-position-x: center;
+        }
+        ul {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            left: 820px;
+            top: 204px;
+        }
+        li {
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            box-shadow: 0 0 3px 1px yellow;
+        }
+        li:nth-child(1){
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            left: 18px;
+            top: 18px;
+            background-color: yellow;
+        }
+    </style>
+</head>
+<body>
+
+    <ul> 
+        <li class='circle'></li>
+        <li class='circle'></li>
+        <li class='circle'></li>
+        <li class='circle'></li>
+    </ul>
+    <script src="../node_modules/animejs/lib/anime.min.js"></script>
+    <script>
+        anime({
+            targets: '.circle',
+            scale: [0,1],
+            delay: anime.stagger(300),
+            duration: 1500,
+            easing: 'linear',
+            loop: true
+        })
+    </script>
+</body>
+</html>

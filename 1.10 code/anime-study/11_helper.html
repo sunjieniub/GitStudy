@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="animation.css">
+</head>
+<body>
+    <div></div>
+    <div></div>
+    <div></div>
+    <button>remove</button>
+    <script src="../node_modules/animejs/lib/anime.min.js"></script>
+    <script>
+        anime({
+            targets: 'div',
+            translateX: 250,
+            loop: true
+        })
+        anime({
+            targets: 'div',
+            translateX: 250,
+            loop: true
+        })
+        // document.querySelector('button').onclick = function(){
+        //     anime.remove(document.querySelectorAll('div')[1])
+        // }
+        var div1 = document.querySelector('div');
+        div1.innerHTML = anime.get(div1,'width','px');
+        anime.set('div',{
+            translateX: anime.random(100,400),
+            rotate: anime.random(200,700)
+        })
+        document.querySelectorAll('div')[2].innerHTML = anime.running.length
+    </script>
+</body>
+</html>

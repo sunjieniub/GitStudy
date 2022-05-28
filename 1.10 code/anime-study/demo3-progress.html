@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            border: solid 1px #ddd;
+            height: 20px;
+        }
+
+        .wrap {
+            width: 200px;
+            position: relative;
+        }
+
+        .inner {
+            width: 0;
+            position: absolute;
+            background-color: cornflowerblue;
+        }
+
+        .num {
+            width: 80px;
+            border: none;
+        }
+    </style>
+    </style>
+</head>
+
+<body>
+    <div class='wrap'>
+        <div class="inner"></div>
+    </div>
+    <div class="num"></div>
+    <script src="../node_modules/animejs/lib/anime.min.js"></script>
+    <script>
+
+        var num = 0;
+        var lastNum = 0;
+        var div = document.querySelector('.num')
+        function play() {
+            lastNum = num;
+            num += anime.random(20, 50);
+            num = num > 100 ? 100 : num;
+            if(lastNum > 100){
+                return
+            }
+            anime({
+                targets: '.inner',
+                width: [lastNum / 100 * 200, num / 100 * 200],
+                easing: 'linear',
+                duration: 1000,
+                delay: 1000,
+                complete: play,
+                change: function(anime){
+                    div.innerHTML = Math.ceil(anime.progress / 100 * (num - lastNum) + lastNum) + '%'
+                }
+            })
+        }
+        play()
+    </script>
+</body>
+
+</html>

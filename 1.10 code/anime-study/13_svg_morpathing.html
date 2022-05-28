@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <svg width="640" height="480" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg">
+        <!-- Created with SVG-edit - http://svg-edit.googlecode.com/ -->
+        <g>
+            <title>Layer 1</title>
+            <polygon stroke-width="5" stroke="#000000"
+                points="196.6489836400266,99 147.83173658008585,166.191176260477 68.84377159990086,140.52643067305985 68.84377159990086,57.47356932694017 147.83173658008585,31.808823739523007 196.6489836400266,98.99999999999999 "
+                strokeWidth="5" strokecolor="#000000" fill="#ffffff" edge="83.05286" orient="x" sides="5"
+                shape="regularPoly" id="svg_5" cy="99" cx="126" />
+        </g>
+    </svg>
+    <script src="../node_modules/animejs/lib/anime.min.js"></script>
+    <script>
+        anime({
+            targets: 'svg polygon',
+            points: [
+                {
+                    value: [
+                        '70 24 119.574 60.369 100.145 117.631 50.855 101.631 3.426 54.369',
+                        '70 41 118.574 59.369 111.145 132.631 60.855 84.631 20.426 60.369']
+                },
+                { value: '70 6 119.574 60.369 100.145 117.631 39.855 117.631 55.426 68.369' },
+                { value: '70 57 136.574 54.369 89.145 100.631 28.855 132.631 38.426 64.369' },
+                { value: '70 24 119.574 60.369 100.145 117.631 50.855 101.631 3.426 54.369' }
+            ],
+            easing: 'linear',
+            duration: 2000,
+            loop: true
+        })
+    </script>
+</body>
+
+</html>

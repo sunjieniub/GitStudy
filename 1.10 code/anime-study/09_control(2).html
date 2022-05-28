@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="animation.css">
+</head>
+<body>
+    <div class='first'></div>
+    <div class='second'></div>
+    <div class='third'></div>
+    <button>play</button>
+    <button>pause</button>
+    <button>reverse</button>
+    <input type="range" name="" id="">
+    <script src="../node_modules/animejs/lib/anime.min.js"></script>
+    <script>
+        var mtTimeline = anime.timeline({
+            easing: 'linear'
+        })
+        mtTimeline.add({
+            targets: '.first',
+            translateX: 250
+        }).add({
+            targets: '.second',
+            translateX: 250
+        }).add({
+            targets: '.third',
+            translateX: 250
+        })
+
+        var playBtn = document.querySelector('button');
+        var pauseBtn = document.querySelectorAll('button')[1];
+        var restartBtn = document.querySelectorAll('button')[2];
+        var reverseBtn = document.querySelectorAll('button')[3];
+        var reverseBtn = document.querySelectorAll('input')[0];
+        
+        playBtn.onclick = mtTimeline.play;
+        pauseBtn.onclick = mtTimeline.pause;
+        restartBtn.onclick = mtTimeline.restart;
+        reverseBtn.onclick = mtTimeline.reverse;
+        reverseBtn.oninput = function(){
+            mtTimeline.seek(this.value/100*mtTimeline.duration)
+        }
+    </script>
+</body>
+</html>

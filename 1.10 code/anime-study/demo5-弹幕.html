@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 800px;
+            height: 400px;
+            background-image: url(img/anime4.gif);
+            background-size: 100%;
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            right: 0;
+            margin: auto;
+            overflow: hidden;
+            font-size: 18px;
+        }
+
+        .box div {
+            width: 100%;
+            position: absolute;
+            color: #fff;
+
+        }
+        .send {
+            position: absolute;
+            bottom: 20px;
+            left: 500px;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class='box'></div>
+    <div class='send'>
+        <input type="text">
+        <button>发送</button>
+    </div>
+   
+    <script src="../node_modules/animejs/lib/anime.min.js"></script>
+    <script>
+        var data = [
+            { id: 1, value: '你好啊' },
+            { id: 2, value: '啦啦啦' },
+            { id: 3, value: '欢迎来到牛客网' },
+            { id: 4, value: '这个视频有点料' },
+            { id: 5, value: '赞赞赞' },
+            { id: 6, value: '66666666' },
+            { id: 7, value: '棒棒棒' },
+            { id: 8, value: '一波牛掰的操作' },
+            { id: 9, value: '亮瞎眼' },
+        ];
+        var barrageColorArray = [
+            '#0099CC','#333333', '#009966','#FFFF66','#9933FF','#FFFF99','#CCCCFF','#CC9933','#FFFF66'
+        ];
+        var box = document.querySelector('.box');
+        var ipt = document.querySelector('input');
+        var btn = document.querySelector('button');
+        // 1.创建后台数据弹幕
+        function animation () {
+            for(var i = 0; i<data.length; i++){
+                var div = document.createElement('div');
+                div.innerHTML = data[i].value;
+                box.appendChild(div);
+                anime.set(div,{
+                    left: 800,
+                    top: anime.random(0,380),
+                    color: barrageColorArray[anime.random(0,barrageColorArray.length-1)]
+                })
+                anime({
+                    targets: div,
+                    left: -200,
+                    delay: anime.random(100,2000),
+                    easing: 'linear',
+                    duration: 10000,
+                    begin: function(){
+                        data = [];
+                    }
+                })
+            }
+
+        }
+        animation()
+        // 2.手动添加元素的弹幕
+        btn.onclick = function(){
+            data.push({id: 9,value: ipt.value});
+            ipt.value = '';
+            animation()
+        }
+    </script>
+</body>
+
+</html>

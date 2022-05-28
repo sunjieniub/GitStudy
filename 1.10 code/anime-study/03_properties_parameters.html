@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="animation.css">
+</head>
+<body>
+    <div></div>
+    <div></div>
+    <div></div>
+    <script src="../node_modules/animejs/lib/anime.min.js"></script>
+    <script>
+        anime({
+            targets: 'div',
+            translateX: {
+                value: '400px',
+                duration: function(el,i,l){
+                    return (i+1)*1000
+                }
+            },
+            delay: 1000,
+            direction: 'alternate',
+            endDelay: 2000,
+            duration: 4000,
+            easing: 'linear',
+            innerHTML: 100,
+            round: 10
+        })
+    </script>
+</body>
+</html>

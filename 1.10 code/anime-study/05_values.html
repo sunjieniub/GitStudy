@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="animation.css">
+    <style>
+        html {
+            font-size: 30px;
+        }
+        div {
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+    <div></div>
+    <div></div>
+    <script src="../node_modules/animejs/lib/anime.min.js"></script>
+    <script>
+        anime({
+            targets: 'div',
+            translateX: [200,800],
+            duration: 2000,
+            easing: 'linear',
+            scale: function(el,i,l){
+                return i*2
+            }
+           // rotate: 540,
+            //width:  '20rem'
+            //width: '*=2'
+            //backgroundColor: 'rgb(66,66,66)'
+            //width: [200,800]
+        })
+    </script>
+</body>
+</html>
